@@ -1,3 +1,23 @@
 body {
-    background-color: black;
+    background-color: rgba(0, 123, 255, 0.1) ;
+}
+
+.ent{
+    background-color: rgb(64, 185, 241);
+    margin: 20px;
+}
+
+div{
+    border-radius: 50px;
+}
+
+.crear{
+    margin: 20px;
+    background-color: rgb(64, 185, 241);
+    background-color: rgba(0, 123, 255, 0.1) ;
+}
+
+.container-custom{
+    background-color: #85C1E9 ;
+    border-radius: 2rem;
 }

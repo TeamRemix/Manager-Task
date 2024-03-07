@@ -10,7 +10,11 @@ import cors from 'cors'
 import bodyParser from 'body-parser'
 import { PORT } from './config.js'
 import { database } from './configdb/keys.js'
+import './lib/passport.js'
+
+// Routes imports
 import indexRoute from './routes/index.routes.js'
+import authRoutes from './routes/auth.routes.js'
 //initializacion
 const app = express()
 const __dirname = dirname(fileURLToPath(import.meta.url))
@@ -39,10 +43,29 @@ app.use(express.text())
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.urlencoded({ extended: false }))
+app.use(session({
+  secret: 'Manage-Task',
+  resave: false,
+  saveUninitialized: false,
+  store: sesionStore
+}))
+
+// setting passport 
+app.use(passport.initialize())
+app.use(passport.session())
+app.use(flash())
+
+// settings globlas 
+app.use((req , res , next) => {
+  app.locals.success = req.flash('success')
+  app.locals.message = req.flash('message')
+  app.locals.user = req.user
+  next()
+})
 
 //routes
 app.use(indexRoute)
-
+app.use(authRoutes)
 //static files
 app.use(express.static(join(__dirname, 'public')))
 

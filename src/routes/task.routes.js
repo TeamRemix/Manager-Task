@@ -6,7 +6,7 @@ const router = Router()
 router.post('/task/create', (req, res) => {
   const { titulo, descripcion, username } = req.body
   try {
-    if (JSON.stringify(titulo).length > 2) {
+    if (JSON.stringify(titulo).length > 2 && JSON.stringify(descripcion).length > 2 && JSON.stringify(username.length > 2)) {
       createTask(titulo, descripcion, username)
       res.send('Task created successfully')
     } else {
