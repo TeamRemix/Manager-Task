@@ -31,7 +31,35 @@ router.post('/signin', (req, res, next) => {
 })
 
 router.get('/home', isAuthenticated, async (req, res) => {
-    res.render('home')
+    const userName = req.user.username
+
+    const listTask = [
+        {
+            title: 'correr',
+            completada: true
+        },
+        {
+            title: 'saltar',
+            completada: true
+        },
+        {
+            title: 'reir',
+            completada: true
+        },
+        {
+            title: 'mirar',
+            completada: false
+        },
+        {
+            title: 'mirar',
+            completada: false
+        },
+        {
+            title: 'mirar',
+            completada: true
+        }
+    ]
+    res.render('home', {userName ,listTask})
 })
 
 router.get('/logout', isAuthenticated, async (req, res) => {
