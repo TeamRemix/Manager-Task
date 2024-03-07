@@ -2,7 +2,16 @@ body {
     background-color: rgba(0, 123, 255, 0.1) ;
 }
 
+.navbar-custom{
+    background-color: #85C1E9;
+}
+
 .container-custom{
     background-color: #85C1E9 ;
     border-radius: 2rem;
 }
+
+.content-modal-custom{
+    border-radius: 2rem;
+    background-color: #D5F5E3 ;
+} 
