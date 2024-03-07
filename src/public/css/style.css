@@ -1,3 +1,17 @@
 body {
-    background-color: black;
+    
+}
+
+.ent{
+    background-color: rgb(64, 185, 241);
+    margin: 20px;
+}
+
+div{
+    border-radius: 50px;
+}
+
+.crear{
+    margin: 20px;
+    background-color: rgb(64, 185, 241);
 }
