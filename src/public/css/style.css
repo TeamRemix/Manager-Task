@@ -1,3 +1,8 @@
 body {
     background-color: rgba(0, 123, 255, 0.1) ;
 }
+
+.container-custom{
+    background-color: #85C1E9 ;
+    border-radius: 2rem;
+}
