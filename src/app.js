@@ -35,6 +35,7 @@ app.set('view engine', 'hbs')
 
 //middlewares
 app.use(express.json())
+app.use(express.text())
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.urlencoded({ extended: false }))
