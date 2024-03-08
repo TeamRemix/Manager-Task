@@ -10,33 +10,37 @@
                     Task</button>
             </div>
             <div>
-               <a class="btn btn-outline-primary m-1" href="/logout">Logout<span class="sr-only"></span></a>
+                <a class="btn btn-outline-primary m-1" href="/logout">Logout<span class="sr-only"></span></a>
             </div>
     </div>
     </nav>
 </div>
 </div>
 
-{{#each listTask}}
+ {{#each listTask}}
 <div class="container-custom container-md col-md-12 shadow-lg mt-3  p-5 min-vh-50">
     <div class="row justify-content-center">
+       
         <div class="col-md-7 card me-1 mb-2 border shadow-lg justify-content-center">{{title}}</div>
         <div class="col-md-1 me-1  d-flex justify-content-center">
             {{#if completada}}
-               <input class="form-check-input mt-3 p-3 mb-2 border shadow-lg" type="checkbox" checked> 
+            <input class="form-check-input mt-3 p-3 mb-2 border shadow-lg" type="checkbox" checked>
             {{else}}
             <input class="form-check-input mt-3 p-3 mb-2 border shadow-lg" type="checkbox">
             {{/if}}
         </div>
-        <div class="col-md-3 p-3 mw 100 d-flex justify-content-center border shadow-lg">
+
+        <div class="col-md-3 p-3 mw 100 d-flex justify-content-center border shadow-lg m-1">
             <div class="btn btn-info me-1" data-bs-toggle="modal" data-bs-target="#updateTaskModal">update</div>
-            <div class="btn btn-danger">Delete</div>
+        <form action="/delete/{{title}}" method="post">
+            <button class="btn btn-danger" type="submit">Delete</button>
+        </form>
         </div>
 
     </div>
-
 </div>
 {{/each}}
+
 {{!-- Modal add task--}}
 <div class="modal fade" id="addTaskModal" tabindex="-1" aria-labelledby="addTaskModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -78,6 +82,13 @@
                             description edition
                         </label>
                         <input type="text" class="form-control  border border-dark" id="taskDes">
+                    </div>
+
+                    <div class="mb-3 ">
+                        <label for="taskDes" class="form-label">
+                            Finalizada
+                        </label>
+                        <input type="checkbox" class="form-check-input mt-3 p-3 mb-2 border shadow-lg  " id="taskDes">
                     </div>
                 </form>
             </div>

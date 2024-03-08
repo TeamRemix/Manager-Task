@@ -15,6 +15,7 @@ import './lib/passport.js'
 // Routes imports
 import indexRoute from './routes/index.routes.js'
 import authRoutes from './routes/auth.routes.js'
+import taskRoutes from './routes/task.routes.js'
 //initializacion
 const app = express()
 const __dirname = dirname(fileURLToPath(import.meta.url))
@@ -65,6 +66,7 @@ app.use((req , res , next) => {
 //routes
 app.use(indexRoute)
 app.use(authRoutes)
+app.use(taskRoutes)
 //static files
 app.use(express.static(join(__dirname, 'public')))
 

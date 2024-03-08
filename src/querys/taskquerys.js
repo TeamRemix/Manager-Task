@@ -33,3 +33,21 @@ export const getAllTask = async (userName) => {
   return false
   
 }
+
+export const findTask = async (title, userName) => {
+  /**
+   * @type {[]}
+   */
+  const task = await pool.execute('SELECT titulo, descripcion from task WHERE titulo = ? AND username = ?', [title, userName])
+  
+  if (task.length > 0) {
+    return true
+  }
+
+  return false
+}
+
+
+export const deleteTask = async (title, userName) => {
+  await pool.execute('DELETE FROM task WHERE titulo = ? AND username = ?', [title, userName])
+}
