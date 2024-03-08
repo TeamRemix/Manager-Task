@@ -1,3 +1,5 @@
+{{!-- Header --}}
+
 <div class="container-fluid p-0 sticky-top mb-4  ">
     <div class="row m-0  ">
         <nav class="navbar navbar-expand-lg w-100 navbar-custom ">
@@ -12,6 +14,9 @@
     </div>
     </nav>
 </div>
+
+{{!-- tasks --}}
+
 <div class="container-custom container-md col-md-12 shadow-lg p-5 min-vh-50">
     <div class="row justify-content-center">
         <div class="col-md-7 card me-1 mb-2 border shadow-lg justify-content-center">Task</div>
@@ -24,56 +29,59 @@
         </div>
 
     </div>
-
 </div>
+
 {{!-- Modal add task--}}
+
 <div class="modal fade" id="addTaskModal" tabindex="-1" aria-labelledby="addTaskModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content content-modal-custom ">
             <div class="modal-header">
-                <h5 class="modal-title" id="addTaskModalLabel">Task Manager</h5>
+                <h5 class="modal-title" id="addTask">Task Manager</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form>
                     <div class="mb-3">
-                        <label for="taskTitle" class="form-laber">
-                            Task title</label>
-                        <input type="text" class="form-control border border-dark mb-2" id="taskTitle">
-                        <label for="taskDes" class="form-label">Task description
-                        </label>
-                        <input type="text" class="form-control  border border-dark" id="taskDes">
+                        <label for="taskTitle" class="form-laber">Task title</label>
+                        <input type="text" name="taskTitle" class="form-control border border-dark mb-2" id="taskTitle">
+                        <label for="taskDes" class="form-label">Task description</label>
+                        <input type="text" name="taskDes" class="form-control  border border-dark" id="taskDes">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" id="saveChangeTask">Create</button>
                     </div>
                 </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="saveChangeTask">Create</button>
             </div>
         </div>
     </div>
 </div>
+
+{{!-- Modal edition task --}}
+
 <div class="modal fade" id="updateTaskModal" tabindex="-1" aria-labelledby="addTaskModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content content-modal-custom ">
             <div class="modal-header">
-                <h5 class="modal-title" id="addTaskModalLabel">Update Task</h5>
+                <h5 class="modal-title" id="updateTask">Update Task</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form>
                     <div class="mb-3">
-                        <label for="taskDes" class="form-label">
-                            description edition
-                        </label>
-                        <input type="text" class="form-control  border border-dark" id="taskDes">
+                        <label for="editionTitle" class="form-label">Title edition</label>
+                        <input type="text" name="titleEdit" class="form-control border border-dark" id="titleEdit">
+                        <label for="editionDes" class="form-label">description edition</label>
+                        <input type="text" name="editionDes" class="form-control  border border-dark" id="editionDes">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" id="saveChangeTask">Save changes</button>
                     </div>
                 </form>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="saveChangeTask">Save changes</button>
-            </div>
+
         </div>
     </div>
 </div>
