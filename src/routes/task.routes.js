@@ -1,28 +1,35 @@
 import { Router } from 'express'
-import { createTask, updateTask } from '../querys/taskquerys.js'
+import { createTask, updateTask, findTask } from '../querys/taskquerys.js'
+import { checkEmptyFields } from '../validator/taskvalidator.js'
 
 const router = Router()
 
-router.post('/task/create', (req, res) => {
-  const { titulo, descripcion, username } = req.body
+router.post('/task/create', checkEmptyFields, async (req, res) => {
+  const titulo = req.body.taskTitle
+  const descripcion = req.body.taskDes
+  const username = req.body.taskNUser
+  const completada = false
   try {
-    if (JSON.stringify(titulo).length > 2 && JSON.stringify(descripcion).length > 2 && JSON.stringify(username.length > 2)) {
-      createTask(titulo, descripcion, username)
-      res.send('Task created successfully')
+    if (await findTask(titulo, username)) {
+      console.log('la tarea existe')
+      res.redirect('/home')
     } else {
-      console.error('Error al crear la tarea:')
+      createTask(titulo, descripcion, completada, username)
       res.redirect('/home')
     }
   } catch (error) {
-    console.error('Error al crear la tarea:', error)
     res.status(500).send('Error interno del servidor al crear la tarea')
+    console.error('Error al crear la tarea:')
+    res.redirect('/home')
   }
 })
-router.put('/task/update', (req, res) => {
-  const { descripcion, username, id } = req.body
+router.post('/task/update', (req, res) => {
+  const descripcion = req.body.taskDes
+  const username = req.body.userN
+  const titulo = req.body.taskTitle
   try {
-    updateTask(descripcion, username, id)
-    res.send('Task updated successfully')
+    updateTask(descripcion, username, titulo)
+    res.redirect('/home')
   } catch (error) {
     console.error('Error al actualizar la tarea:', error)
     res.status(500).send('Error interno del servidor al actualizar la tarea')

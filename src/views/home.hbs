@@ -35,20 +35,22 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form>
+                <form method="post" action="http://localhost:4600/task/create">
                     <div class="mb-3">
                         <label for="taskTitle" class="form-laber">
                             Task title</label>
-                        <input type="text" class="form-control border border-dark mb-2" id="taskTitle">
+                        <input type="text" class="form-control border border-dark mb-2" id="taskTitle" name="taskTitle">
                         <label for="taskDes" class="form-label">Task description
                         </label>
-                        <input type="text" class="form-control  border border-dark" id="taskDes">
+                        <input type="text" class="form-control  border border-dark" id="taskDes" name="taskDes">
+                        <input type="text" class="form-control  border border-dark" id="taskNUser" name="taskNUser">
                     </div>
+                    <button type="submit" class="btn btn-primary" id="saveChangeTask">Create</button>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="saveChangeTask">Create</button>
+                
             </div>
         </div>
     </div>
@@ -61,18 +63,21 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form>
+                <form method="post" action="http://localhost:4600/task/update">
                     <div class="mb-3">
                         <label for="taskDes" class="form-label">
                             description edition
                         </label>
-                        <input type="text" class="form-control  border border-dark" id="taskDes">
+                        <input type="text" class="form-control  border border-dark" id="taskDes" name="taskDes">
+                      <input type="text" class="form-control  border border-dark" id="userN" name="userN">
+                      <input type="text" class="form-control  border border-dark" id="taskTitle" name="taskTitle">
                     </div>
+                     <button type="submit" class="btn btn-primary" id="saveChangeTask">Save changes</button>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="saveChangeTask">Save changes</button>
+               
             </div>
         </div>
     </div>
