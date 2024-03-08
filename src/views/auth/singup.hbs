@@ -6,28 +6,33 @@ align-items-center vh-100">
         <img src="assets/img/login-icon.svg" alt="registrate-icono" style="height:7rem" />
       </div>
       <div class="text-center fs-1 fw-bold mt-1">Registrate</div>
-      <div>
-        <input class="form-control " type="text" placeholder="Nombre">
-      </div>
-      <div>
-        <input class="form-control" type="text" placeholder="Apellido">
-      </div>
-      <div>
-        <input class="form-control" type="text" placeholder="Nombre de usuario">
-      </div>
-      <div>
-        <input class="form-control" type="text" placeholder="Correo electrónico">
-      </div>
-      <div>
-        <input class="form-control" type="password" placeholder="Contraseña">
-      </div>
-      <div>
-        <input class="form-control" type="password" placeholder="Confirmar Contraseña">
-      </div>
-      <div class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm">Crear cuenta </div>
-
-      <div>
-
+      <form action="/singup" method="POST">
+      <div class="form-group">
+        <div>
+          <input class="form-control " type="text" placeholder="name" name="input_name">
+        </div>
+        <div>
+          <input class="form-control" type="text" placeholder="lastname" name="input_lastname">
+        </div>
+        <div>
+          <input class="form-control" type="text" placeholder="user name" name="username">
+        </div>
+        <div>
+          <input class="form-control" type="text" placeholder="email" name="input_email">
+        </div>
+        <div>
+          <input class="form-control" type="password" placeholder="password" >
+        </div>
+        <div>
+          <input class="form-control" type="password" placeholder="confi password" name="password">
+        </div>
+      
+          <button class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm"> create acount</button>
+      
+        
+      
+        </div>
+        </form>
 
 
       </div>

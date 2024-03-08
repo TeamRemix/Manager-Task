@@ -32,9 +32,9 @@ passport.use('local.signup', new Strategy({
     if (userExit) {
         done(null, false, req.flash('message', `That Username is alredy : ${username}`))
     } else {
-    const user = { username, fullname: req.body.fullname }
+    const user = { username, name: req.body.input_name, lastName : req.body.input_lastname, email: req.body.input_email }
     user.password = await bcrypt.encryptPassword(password)
-    await pool.execute('INSERT INTO users (username, name, password) VALUES (?, ?, ?)', [user.username, user.fullname, user.password])
+    await pool.execute('INSERT INTO users (username, name, lastname, email, password) VALUES (?, ?, ?, ?, ?)', [user.username, user.name, user.lastName, user.email, user.password])
     done(null, user)
     }
 }))
