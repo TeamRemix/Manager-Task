@@ -1,6 +1,7 @@
 import express from 'express'
 import passport from 'passport'
 import { functAuthMiddleware } from '../lib/middlewaresauth/authMiddleware.js'
+import { getAllTask } from '../querys/taskquerys.js'
 
  
 const router = express.Router()
@@ -22,22 +23,27 @@ router.get('/singin', (req, res) => {
     res.render('auth/login')
 })
 
-router.post('/signin', (req, res, next) => {
+router.post('/singin', (req, res, next) => {
     passport.authenticate('local.signin', {
-        successRedirect: '/profile',
-        failureRedirect: '/signin',
+        successRedirect: '/home',
+        failureRedirect: '/singin',
         failureFlash: true
     })(req, res, next)
 })
 
 router.get('/home', isAuthenticated, async (req, res) => {
-    res.render('home')
+    const userName = req.user.username
+
+    const listTask = await  getAllTask(userName)
+
+        
+    res.render('home', {userName ,listTask})
 })
 
 router.get('/logout', isAuthenticated, async (req, res) => {
     await req.logout((err) => {
         if (err) return next(err);
-        res.redirect('signin')
+        res.redirect('/singin')
       })
     
 })

@@ -1,29 +1,40 @@
-<div class="container p-3">
-  <div class="row">
-    <div class="col-md-4 mx-auto">
-      <div class="card text-center">
-        <div class="card-header">
-          <h3>Sign Up</h3>
-        </div>
-        <div class="card-body">
-          <form action="/singup" method="POST">
-            <div class="form-group">
-              <input type="text" name="fullname" placeholder="Full Name" class="form-control">
-            </div>
-            <div class="form-group">
-              <input type="text" name="username" placeholder="Username" class="form-control">
-            </div>
-            <div class="form-group">
-              <input type="password" name="password" placeholder="Password" class="form-control">
-            </div>
-            <div class="form-group">
-              <button class="btn-primary btn-block">
-                Sign Up
-              </button>
-            </div>
-          </form>
-        </div>
+<div class="bg-info d-flex justify-content-center
+align-items-center vh-100">
+  <div class="bg-white p-5 rounded-5 text-secondary shadow" style="width:25rem">
+    <div>
+      <div class="d-flex justify-content-center">
+        <img src="assets/img/login-icon.svg" alt="registrate-icono" style="height:7rem" />
       </div>
+      <div class="text-center fs-1 fw-bold mt-1">Registrate</div>
+      <form action="/singup" method="POST">
+      <div class="form-group">
+        <div>
+          <input class="form-control " type="text" placeholder="name" name="input_name">
+        </div>
+        <div>
+          <input class="form-control" type="text" placeholder="lastname" name="input_lastname">
+        </div>
+        <div>
+          <input class="form-control" type="text" placeholder="user name" name="username">
+        </div>
+        <div>
+          <input class="form-control" type="text" placeholder="email" name="input_email">
+        </div>
+        <div>
+          <input class="form-control" type="password" placeholder="password" >
+        </div>
+        <div>
+          <input class="form-control" type="password" placeholder="confi password" name="password">
+        </div>
+      
+          <button class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm"> create acount</button>
+      
+        
+      
+        </div>
+        </form>
+
+
+      </div>
+
     </div>
-  </div>
-</div>
