@@ -1,6 +1,6 @@
 import { Router } from 'express'
 import { createTask, updateTask, findTask, deleteTask } from '../querys/taskquerys.js'
-import { checkEmptyFields } from '../validator/taskvalidator.js'
+import { checkEmptyFields, checkUpdateFiels } from '../validator/taskvalidator.js'
 
 const router = Router()
 
@@ -9,11 +9,6 @@ router.post('/task/create', checkEmptyFields, async (req, res) => {
   const descripcion = req.body.taskDes
   const completada = false
   const username = req.user.username
-
-  console.log('Datos recibidos del formulario:')
-  console.log('Título:', titulo)
-  console.log('Descripción:', descripcion)
-  console.log('Nombre de usuario:', username)
 
   try {
     if (await findTask(titulo, username)) {
@@ -30,14 +25,13 @@ router.post('/task/create', checkEmptyFields, async (req, res) => {
   }
 })
 
-router.post('/task/update', (req, res) => {
-  console.log('llego ala ruta de update')
+router.post('/task/update', checkUpdateFiels, (req, res) => {
   const descripcion = req.body.editionDes
   const completada = req.body.checkComplete === 'true'
   const username = req.user.username
   const titulo = req.body.titleEdit
   try {
-    console.log('dentro del try');
+    console.log('dentro del try')
     updateTask(descripcion, completada, username, titulo)
     res.redirect('/home')
   } catch (error) {
