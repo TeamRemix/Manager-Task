@@ -21,13 +21,14 @@ export const getAllTask = async (userName) => {
   /**
    * @type {[]}
    */
-  const task = await pool.execute(' SELECT titulo, completada from task WHERE username = ? ', [userName])
+  const task = await pool.execute(' SELECT titulo, completada, descripcion from task WHERE username = ? ', [userName])
   //console.log(`las task ${JSON.stringify(task)}`);
   if (task) {
     const listTask = task.map((item) => {
       return {
         title: item.titulo,
-        completada: item === 1 ? true : false,
+        completada: item.completada === 1 ? true : false,
+        descripcion: item.descripcion
       }
     })
     console.log(`las task ${JSON.stringify(listTask)}`)

@@ -23,7 +23,12 @@
 <div class="container-custom container-md col-md-12 shadow-lg mt-3  p-5 min-vh-50">
     <div class="row justify-content-center">
        
-        <div class="col-md-7 card me-1 mb-2 border shadow-lg justify-content-center">{{title}}</div>
+        <div class="col-md-7 card me-1 mb-2 border shadow-lg justify-content-center"> 
+            <span>{{title}} </span> 
+            <hr>
+            <span>Descripcion:  {{descripcion}}</span>
+            
+            </div>
         <div class="col-md-1 me-1  d-flex justify-content-center">
             {{#if completada}}
             <input class="form-check-input mt-3 p-3 mb-2 border shadow-lg" type="checkbox" checked>
@@ -33,7 +38,10 @@
         </div>
 
         <div class="col-md-3 p-3 mw 100 d-flex justify-content-center border shadow-lg m-1">
-            <div class="btn btn-info me-1" data-bs-toggle="modal" data-bs-target="#updateTaskModal">update</div>
+            <form action="">
+                <div class="btn btn-info me-1" data-bs-toggle="modal" data-bs-target="#updateTaskModal">update</div>
+            </form>
+            
         <form action="/delete/{{title}}" method="post">
             <button class="btn btn-danger" type="submit">Delete</button>
         </form>
@@ -59,13 +67,14 @@
                         <input type="text" class="form-control border border-dark mb-2" id="taskTitle"  name="taskTitle" >
                         <label for="taskDes" class="form-label">Task description</label>
                         <input type="text"  class="form-control  border border-dark" id="taskDes" name="taskDes">
+                        
                     </div>
                     <div class="modal-footer">
-                        
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary" id="saveChangeTask">Create</button>
                     </div>
                 </form>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                
             </div>
         </div>
     </div>
@@ -84,7 +93,7 @@
                 <form method="post" action="/task/update">
                     <div class="mb-3">
                         <label for="editionTitle" class="form-label">Title edition</label>
-                        <input type="text" name="titleEdit" class="form-control border border-dark" id="titleEdit" name="titleEdit" >
+                        <input type="text" name="titleEdit" class=" mb-2 form-control border border-dark" id="titleEdit" name="titleEdit" >
                         <label for="editionDes" class="form-label">description edition</label>
                         <input type="text" name="editionDes" class="form-control  border border-dark" id="editionDes"  name="editionDes">
                     </div>

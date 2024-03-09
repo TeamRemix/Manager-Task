@@ -7,8 +7,8 @@ body {
     margin: 20px;
 }
 
-div{
-    border-radius: 50px;
+.round-div {
+    border-radius: 2rem;
 }
 
 .crear{
