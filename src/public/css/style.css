@@ -2,7 +2,6 @@ body {
     background-color: rgba(0, 123, 255, 0.1) ;
 }
 
-<<<<<<< HEAD
 .ent{
     background-color: rgb(64, 185, 241);
     margin: 20px;
@@ -16,10 +15,9 @@ div{
     margin: 20px;
     background-color: rgb(64, 185, 241);
     background-color: rgba(0, 123, 255, 0.1) ;
-=======
+}
 .navbar-custom{
     background-color: #85C1E9;
->>>>>>> olger
 }
 
 .container-custom{
