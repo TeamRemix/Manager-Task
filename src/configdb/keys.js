@@ -1,6 +1,6 @@
 export const database = {
   host: 'localhost',
-  user: 'root',
-  port: 33065,
-  database: 'tarea',
+  user: 'admin_rafa',
+  password: '2003',
+  database: 'MANAGER_TASK',
 }

@@ -17,10 +17,11 @@ router.post('/task/create', checkEmptyFields, async (req, res) => {
 
   try {
     if (await findTask(titulo, username)) {
-      console.log('titulo en uso escoja otro')
+      req.flash('message', 'actualmente existe una tarea con ese titulo')
+      res.redirect('/home')
     } else {
       createTask(titulo, descripcion, completada, username)
-      console.log('Tarea creada con éxito')
+      req.flash('success', 'tarea creada exitosamente!')
       res.redirect('/home')
     }
   } catch (error) {
@@ -30,17 +31,19 @@ router.post('/task/create', checkEmptyFields, async (req, res) => {
 })
 
 router.post('/task/update', (req, res) => {
+  console.log('llego ala ruta de update');
   const descripcion = req.body.editionDes
   const completada = req.body.checkComplete === 'true'
   const username = req.user.username
   const titulo = req.body.titleEdit
-  try {
+  //try {
+    console.log('dentro del try');
     updateTask(descripcion, completada, username, titulo)
     res.redirect('/home')
-  } catch (error) {
-    console.error('Error al actualizar la tarea:', error)
-    res.status(500).send('Error interno del servidor al actualizar la tarea')
-  }
+  //} catch (error) {
+  //  console.error('Error al actualizar la tarea:', error)
+  //  res.status(500).send('Error interno del servidor al actualizar la tarea')
+  //}
 })
 
 router.post('/delete/:title', async (req, res) => {
